@@ -13,8 +13,8 @@
 
     <div id="navbarSignIn" class="navbar-menu is-active" id="navMenu">
       <div class="navbar-start">
-        <%= link_to "Transactions", user_entities_path(current_user.id), class: "navbar-item" %>
-        <%= link_to "Groups", user_groups_path(current_user.id), class: "navbar-item" %>
+        <%= link_to "Transactions", entities_path, class: "navbar-item" %>
+        <%= link_to "Groups", groups_path, class: "navbar-item" %>
         <%= link_to "Users", root_path, class: "navbar-item" %>
       </div>
 

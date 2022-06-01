@@ -25,8 +25,8 @@
 </div>
 
 <div>
-  <%= link_to "Edit this group", edit_user_group_path(@group) %> |
-  <%= link_to "Back to groups", user_groups_path %>
-  <%= button_to "Delete this group", "/users/#{current_user.id}/groups/#{@group.id}",
+  <%= link_to "Edit this group", edit_group_path(@group) %> |
+  <%= link_to "Back to groups", groups_path %>
+  <%= button_to "Delete this group", "/groups/#{@group.id}",
    :method=>:delete, :data=>{turbo:false}, class: "button is-danger" %> 
 </div>
