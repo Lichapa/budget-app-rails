@@ -1,0 +1,47 @@
+<nav class="navbar is-success" role="navigation" aria-label="main navigation"> 
+  <% if user_signed_in? %>  
+    <div class="navbar-brand">
+      <%= link_to "Budget App", root_path, class: "navbar-item" %>
+      <p class="navbar-item">Welcome <%= current_user.name.capitalize %></p> 
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarSignIN">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarSignIn" class="navbar-menu is-active" id="navMenu">
+      <div class="navbar-start">
+        <%= link_to "Transactions", user_entities_path(current_user.id), class: "navbar-item" %>
+        <%= link_to "Groups", user_groups_path(current_user.id), class: "navbar-item" %>
+        <%= link_to "Users", root_path, class: "navbar-item" %>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary is-small" %> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <% else %>   
+    <div class="navbar-item has-text-white">        
+      <div class="field is-grouped">
+        <p class="control">Budget App</p>
+        <p class="control"><%= link_to 'Register', new_user_registration_path, class: "nav-link" %> </p>
+        <p class="control"><%= link_to 'Sign in', new_user_session_path, class: "nav-link" %></p>
+      </div>
+    </div>
+
+  <% end %> 
+
+
+
+
+
+
+</nav>

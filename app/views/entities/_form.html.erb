@@ -1,4 +1,4 @@
-<%= form_with(model: entity) do |form| %>
+<%= form_with model: @entity, url: "/users/#{current_user.id}/entities" do |form| %>
   <% if entity.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
@@ -11,20 +11,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field is-normal">
+    <div class="control has-icons-left">
+      <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Group Name" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-object-group"></i>
+      </span>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.number_field :amount %>
+  <div class="field has-addons">
+    <p class="control">
+      <a class="button is-static"> $ </a>
+    </p>
+    <div class="control">
+      <%= form.number_field :amount, autocomplete: "amount", class: "input", placeholder: "Amount" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
 
   <div>
     <%= form.submit %>
