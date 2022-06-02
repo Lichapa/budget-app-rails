@@ -1,22 +1,42 @@
+<nav class="navbar is-link " role="navigation" arial-label="main navigation">
+  <% if user_signed_in? %>
+    <div class="navbar-brand columns is-flex is-mobile is-fullwidth  ">
+        <div class="navbar-item column  is-justify-content-center is-one-quarter">
+            <%= link_to groups_path do %>
+                <p class="is-fluid">
+                <i class="fa-solid fa-arrow-left has-text-white "></i>
+                </p>
+            <% end %>
+        </div>
+
+        <div class="navbar-item column is-two-quarters is-justify-content-center">
+            <h1 >Category</h1>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-one-quarter">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary " %> 
+          </div>
+        </div>
+    </div>  
+  <% end %>
+</nav>
+
 <p style="color: green"><%= notice %></p>
 
 <div id="<%= dom_id @group %>">
-  <div class="card">
-    <div class="card-image">
-      <figure class="image is-3by2">
-        <img src="<%= @group.icon %>" alt="Group icon">
-      </figure>
-    </div>
+  <div class="card equal-height">
     <div class="card_content">
       <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="<%= @group.icon%>" alt="Group icon">
+        <div class="card-image has-text-centered">
+
+          <figure class="image is-64x64 is-inline-block">
+            <img class="image is-squared is-64x64" src="<%= @group.icon%>" alt="Group icon">
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-4"><%= @group.name %></p>
-          <p class="subtitle is-6"><i class="fas fa-user"></i> <%= @group.user_id %></p>  
+          <p class="title is-4"><%= @group.name %></p>  
+          <p class="subtitle is-6"><strong>Total: </strong><i class="fa fa-dollar"></i>  </p>  
         </div>
       </div>
     </div>
@@ -25,8 +45,14 @@
 </div>
 
 <div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
-  <%= button_to "Delete this group", "/groups/#{@group.id}",
-   :method=>:delete, :data=>{turbo:false}, class: "button is-danger" %> 
+  <%= button_to "Delete Category", "/groups/#{@group.id}",
+   :method=>:delete, :data=>{turbo:false}, class: "button is-danger is-fullwidth" %>
+  <%= link_to "Edit Category", edit_group_path(@group), class: "button is-info is-fullwidth" %>
+  <%= link_to "Add New Transaction", new_entity_path , class: "button is-primary is-fullwidth" %>
+  
 </div>
+
+<br />
+<h3 class="title is-4">Transactions</h3>
+
+<%= render "/entities/entity" %>

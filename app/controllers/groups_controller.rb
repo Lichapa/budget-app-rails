@@ -3,13 +3,13 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
-    @users = User.all
+    @groups = current_user.groups.all.order(created_at: :desc)
   end
 
   # GET /groups/1 or /groups/1.json
   def show
-    @user = User.all
+    @group = Group.find(params[:id])
+    @entities = @group.entities.all
   end
 
   # GET /groups/new

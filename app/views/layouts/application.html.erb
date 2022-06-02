@@ -11,13 +11,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    
-    <%= render 'layouts/navbar' %>
-    <div class="container is-fluid">
-      <p class="notice"><%= notice %></p>
+  <body>   
       <p class="alert"><%= alert %></p>
       <%= yield %>
-    </div>
   </body>
 </html>

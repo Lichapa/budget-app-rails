@@ -1,4 +1,4 @@
-<%= form_with model: @entity, url: "/users/#{current_user.id}/entities" do |form| %>
+<%= form_with(model: @entity) do |form| %>
   <% if entity.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div class="field is-normal">
     <div class="control has-icons-left">
-      <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Group Name" %>
+      <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Transaction Name" %>
       <span class="icon is-small is-left">
         <i class="fas fa-object-group"></i>
       </span>
@@ -24,13 +24,26 @@
     <p class="control">
       <a class="button is-static"> $ </a>
     </p>
-    <div class="control">
+    <div class="control is-expanded">
       <%= form.number_field :amount, autocomplete: "amount", class: "input", placeholder: "Amount" %>
     </div>
   </div>
 
+  <div class="field has-addons">
+    <p class="control">
+      <a class="button is-static"> Group </a>
+    </p>
+    <div class= "control ">
+      <div class="select ">
+      <%= form.collection_select :group_id, current_user.groups.order(:name),:id,:name, include_blank: false %>
+      </div>
+    </div>
+  </div>
 
-  <div>
-    <%= form.submit %>
+
+  <div class="field">
+    <div class="control ">
+      <%= form.submit "Add Transaction", class: "button is-success is-fullwidth" %>
+    </div>
   </div>
 <% end %>

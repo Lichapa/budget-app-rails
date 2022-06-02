@@ -1,9 +1,31 @@
-<h1>New entity</h1>
+<nav class="navbar is-link " role="navigation" arial-label="main navigation">
+  <% if user_signed_in? %>
+    <div class="navbar-brand columns is-flex is-mobile  ">
+        <div class="navbar-item column  is-justify-content-center is-one-quarter">
+            <%= link_to entities_path do %>
+                <p class="is-fluid">
+                <i class="fa-solid fa-arrow-left has-text-white "></i>
+                </p>
+            <% end %>
+        </div>
+
+        <div class="navbar-item column is-two-quarters is-justify-content-center">
+            <h1 >New Transaction</h1>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-one-quarter">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary " %> 
+          </div>
+        </div>
+    </div>  
+  <% end %>
+</nav>
+
+<h1 class="title is-4">Create New Transaction</h1>
 
 <%= render "form", entity: @entity %>
 
-<br>
 
-<div>
-  <%= link_to "Back to entities", entities_path %>
-</div>
+
+

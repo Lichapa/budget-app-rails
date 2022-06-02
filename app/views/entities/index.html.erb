@@ -1,14 +1,39 @@
+<nav class="navbar is-link is-fluid" role="navigation" arial-label="main navigation">
+  <% if user_signed_in? %>
+    <div class="navbar-brand columns is-flex is-mobile is-desktop is-fullwidth">
+        <div class="navbar-item column  is-justify-content-center is-one-quarter">
+            <%= link_to groups_path do %>
+                <p class="is-fluid">
+                <i class="fa-solid fa-arrow-left has-text-white "></i>
+                </p>
+            <% end %>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-two-quarters">
+            <h1>Transactions</h1>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-one-quarter">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary is-small" %> 
+          </div>
+        </div>
+    </div>  
+  <% end %>
+</nav>
+
+<div class="section">
 <p style="color: green"><%= notice %></p>
 
-<h1>Entities</h1>
-
 <div id="entities">
-  <% @entities.each do |entity| %>
-    <%= render entity %>
-    <p>
-      <%= link_to "Show this entity", entity %>
-    </p>
-  <% end %>
+    <% if @entities.empty? %>
+        <p class="has-text-primary">You have not yet added any Transactions</p>
+    <% else %>
+        <%= render "entity" %>
+    <% end %>
+    
 </div>
-
-<%= link_to "New entity", new_user_entity_path(current_user) %>
+</div>
+<footer class="footer is-flex is-justify-content-center ">
+    <%= link_to "New Transaction", new_entity_path, class: "button is-success is-fullwidth" %>
+</footer>

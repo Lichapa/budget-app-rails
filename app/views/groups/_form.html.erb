@@ -13,7 +13,7 @@
 
   <div class="field">
     <div class="control has-icons-left">
-      <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Group Name" %>
+      <%= form.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Category Name" %>
       <span class="icon is-small is-left">
         <i class="fas fa-object-group"></i>
       </span>
@@ -22,7 +22,7 @@
 
   <div class="field">
     <div class="control has-icons-left">
-      <%= form.text_field :icon, autofocus: true, autocomplete: "name", class: "input", placeholder: "Group Icon" %>
+      <%= form.text_field :icon, autofocus: true, autocomplete: "name", class: "input", placeholder: "Category Icon" %>
       <span class="icon is-small is-left">
         <i class="fas fa-image"></i>
       </span>
@@ -31,7 +31,7 @@
 
   <div class="field">
     <div class="control">
-      <%= form.submit "Submit", class: "button is-success" %>
+      <%= form.submit "Add Category", class: "button is-success is-fullwidth" %>
     </div>
   </div>
 <% end %>

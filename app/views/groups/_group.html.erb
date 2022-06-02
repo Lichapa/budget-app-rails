@@ -1,21 +1,21 @@
 <div id="<%= dom_id group %>">
-  <div class="card">
-    <div class="card_content">
-      <div class="media">
-        <div class="media-left">
-          <figure class="image is-48x48">
-            <img src="<%= group.icon%>" alt="Group icon">
-          </figure>
-        </div>
-        <div class="media-content">
-          <p class="title is-4"><%= group.name %></p>
-          <p class="subtitle is-6"><i class="fas fa-user"></i> <%= group.user_id %></p> 
-          <p class="subtitle is-6"><%= link_to "Show this group", group_path(group.id) %></p> 
+  <%= link_to group_path(group.id) do %>
+    <div class="card is-expanded">
+      <div class="card_content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-64x64">
+              <img class="image is-squared is-64x64" src="<%= group.icon%>" alt="Group icon">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4"><%= group.name %></p>
+            <p class="subtitle is-6"><i class="far fa-calendar-alt"></i> <%= group.created_at.to_date %></p> 
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
+  <% end %>
   <br />
   
 

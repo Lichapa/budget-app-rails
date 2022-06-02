@@ -1,10 +1,56 @@
-<p style="color: green"><%= notice %></p>
+<nav class="navbar is-link is-fluid " role="navigation" arial-label="main navigation">
+  <% if user_signed_in? %>
+    <div class="navbar-brand columns is-flex is-mobile is-desktop ">
+        <div class="navbar-item column  is-justify-content-center is-one-quarter">
+            <%= link_to entities_path do %>
+                <p class="is-fluid">
+                <i class="fa-solid fa-arrow-left has-text-white "></i>
+                </p>
+            <% end %>
+        </div>
 
-<%= render @entity %>
+        <div class="navbar-item column is-justify-content-center is-two-quarters">
+            <h1 >Transaction</h1>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-one-quarter">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary " %> 
+          </div>
+        </div>
+    </div>  
+  <% end %>
+</nav>
+
+<p style="color: green"><%= notice %></p>
+<h2 class="title is-5">Manage Transaction</h2>
+<br />
+
+<div id="<%= dom_id @entity %>">
+  
+  <div class="card is-expanded">
+    <div class="card_content">
+      <div class="media columns is-mobile is-desktop">
+        <div class="media-left column is-one-fifth">
+          <figure class="image is-64x64" >
+            <img class="image is-squared is-64x64" src="<%= @entity.group.icon %>" alt="Group icon">
+          </figure>
+        </div>
+        <div class="media-content column is-three-fifth ">
+          <p class="title is-6"><%= @entity.name %></p> 
+          <p class="subtitle is-6"><i class="fa fa-calendar"></i> <%= @entity.created_at.to_date %></p> 
+        </div>
+            
+        <div class="media-right column is-one-fifth ">
+        <p class="subtitle is-6"><i class="fa fa-dollar"></i> <%= @entity.amount %></p>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div>
-  <%= link_to "Edit this entity", edit_entity_path(@entity) %> |
-  <%= link_to "Back to entities", entities_path %>
-
-  <%= button_to "Destroy this entity", @entity, method: :delete %>
+<br />
+  <%= button_to "Delete this Transaction", @entity, method: :delete, class: "button is-danger is-fullwidth" %>
+  <%= link_to "Edit Transaction", edit_entity_path(@entity), class: "button is-info is-fullwidth" %>
 </div>

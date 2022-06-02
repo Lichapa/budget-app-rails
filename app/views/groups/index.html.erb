@@ -1,6 +1,26 @@
+<nav class="navbar is-link is-fluid" role="navigation" arial-label="main navigation">
+  <% if user_signed_in? %>
+    <div class="navbar-brand columns is-flex is-mobile">
+        <div class="navbar-item column  is-justify-content-center is-two-quarters">
+            <p ><%= current_user.name.capitalize %></p> 
+        </div>
+
+        <div class="navbar-item column is-justify-content-center ">
+            <h1>Categories</h1>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-one-quarter">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary is-small" %> 
+          </div>
+        </div>
+    </div>  
+  <% end %>
+</nav>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Groups</h1>
+<h1>Categories</h1>
 
 <div id="groups">
   <% @groups.each do |group| %>
@@ -11,4 +31,4 @@
   <% end %>
 </div>
 
-<%= link_to "New group", new_group_path %>
+<%= link_to "New Category", new_group_path, class: "button is-primary is-fullwidth" %>

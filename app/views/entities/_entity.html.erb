@@ -1,17 +1,25 @@
-<div id="<%= dom_id entity %>">
-  <p>
-    <strong>Name:</strong>
-    <%= entity.name %>
-  </p>
-
-  <p>
-    <strong>Amount:</strong>
-    <%= entity.amount %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= entity.user_id %>
-  </p>
-
-</div>
+<br />
+<% @entities.each do |entity| %>
+  <%= link_to entity do %>      
+    <div class="card is-expanded">
+        <div class="card_content">
+          <div class="media columns is-mobile is-desktop">
+            <div class="media-left column is-one-fifth">
+              <figure class="image is-64x64" >
+                <img class="image is-squared is-64x64" src="<%= entity.group.icon %>" alt="Group icon">
+              </figure>
+            </div>
+            <div class="media-content column is-three-fifth ">
+              <p class="title is-6"><%= entity.name %></p>
+              <p class="subtitle is-6"><i class="far fa-calendar-alt"></i> <%= entity.created_at.to_date %></p>  
+            </div>
+            
+            <div class="media-right column is-one-fifth ">
+            <p class="subtitle is-6"><i class="fa fa-dollar"></i> <%= entity.amount %></p>  
+            </div>
+          </div>
+        </div>
+    </div>
+  <% end %>
+<% end %>
+<br />

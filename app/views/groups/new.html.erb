@@ -1,9 +1,32 @@
-<h1>New group</h1>
+<nav class="navbar is-link " role="navigation" arial-label="main navigation">
+  <% if user_signed_in? %>
+    <div class="navbar-brand columns is-flex is-mobile  ">
+        <div class="navbar-item column  is-justify-content-center is-one-quarter">
+            <%= link_to groups_path do %>
+                <p class="is-fluid">
+                <i class="fa-solid fa-arrow-left has-text-white "></i>
+                </p>
+            <% end %>
+        </div>
+
+        <div class="navbar-item column is-two-quarters is-justify-content-center">
+            <h1 >New Category</h1>
+        </div>
+
+        <div class="navbar-item column is-justify-content-center is-one-quarter">
+          <div class="buttons">
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "button is-primary " %> 
+          </div>
+        </div>
+    </div>  
+  <% end %>
+</nav>
+
+
+<h1>Create New Category</h1>
 
 <%= render "form", group: @group %>
 
 <br>
 
-<div>
-  <%= link_to "Back to groups", groups_path %>
-</div>
+

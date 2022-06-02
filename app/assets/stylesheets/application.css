@@ -14,7 +14,21 @@
  *= require_self
  */
 
-/* body {
-   width: 90%;
-   margin: 0 auto;
-} */
+body {
+   display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.section {
+  flex: 1;
+}
+
+.footer {
+   background-color: green;
+ 
+   padding: 10px;
+}
+
+
+

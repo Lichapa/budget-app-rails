@@ -3,11 +3,14 @@ class EntitiesController < ApplicationController
 
   # GET /entities or /entities.json
   def index
-    @entities = Entity.all
+    @entities = current_user.entities.all.order(created_at: :desc)
   end
 
   # GET /entities/1 or /entities/1.json
-  def show; end
+  def show
+   @entities = current_user.entities
+   
+  end
 
   # GET /entities/new
   def new
@@ -24,7 +27,7 @@ class EntitiesController < ApplicationController
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully created.' }
+        format.html { redirect_to entity_url(@entity), notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -37,7 +40,7 @@ class EntitiesController < ApplicationController
   def update
     respond_to do |format|
       if @entity.update(entity_params)
-        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully updated.' }
+        format.html { redirect_to entity_url(@entity), notice: 'Tansaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @entity }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +68,6 @@ class EntitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def entity_params
-    params.require(:entity).permit(:name, :amount)
+    params.require(:entity).permit(:name, :amount, :group_id)
   end
 end
