@@ -71,6 +71,11 @@ group :test do
   gem 'webdrivers'
 end
 
+# For authentication
 gem 'devise'
 
+# ROR Linters
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+# Authorization
+gem 'cancancan'
