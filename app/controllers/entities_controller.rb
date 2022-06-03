@@ -1,5 +1,6 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   # GET /entities or /entities.json
   def index
@@ -8,8 +9,7 @@ class EntitiesController < ApplicationController
 
   # GET /entities/1 or /entities/1.json
   def show
-   @entities = current_user.entities
-   
+    @entities = current_user.entities
   end
 
   # GET /entities/new

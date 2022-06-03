@@ -1,5 +1,9 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
+  # GET /groups/new
+  def new; end
 
   # GET /groups or /groups.json
   def index
@@ -10,11 +14,6 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @entities = @group.entities.all
-  end
-
-  # GET /groups/new
-  def new
-    @group = Group.new
   end
 
   # GET /groups/1/edit

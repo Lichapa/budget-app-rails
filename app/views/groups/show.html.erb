@@ -36,7 +36,7 @@
         </div>
         <div class="media-content">
           <p class="title is-4"><%= @group.name %></p>  
-          <p class="subtitle is-6"><strong>Total: </strong><i class="fa fa-dollar"></i>  </p>  
+          <p class="subtitle is-6"><strong>Total: </strong><i class="fa fa-dollar"></i><%= @entities.sum(:amount) %> </p>  
         </div>
       </div>
     </div>
@@ -45,11 +45,12 @@
 </div>
 
 <div>
+  <% if can? :manage, @group%>
   <%= button_to "Delete Category", "/groups/#{@group.id}",
    :method=>:delete, :data=>{turbo:false}, class: "button is-danger is-fullwidth" %>
   <%= link_to "Edit Category", edit_group_path(@group), class: "button is-info is-fullwidth" %>
   <%= link_to "Add New Transaction", new_entity_path , class: "button is-primary is-fullwidth" %>
-  
+  <% end %>
 </div>
 
 <br />
