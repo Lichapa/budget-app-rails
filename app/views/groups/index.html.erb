@@ -1,5 +1,4 @@
 <nav class="navbar is-link is-fluid" role="navigation" arial-label="main navigation">
-  <% if user_signed_in? %>
     <div class="navbar-brand columns is-flex is-mobile">
         <div class="navbar-item column  is-justify-content-center is-two-quarters">
             <p ><%= current_user.name.capitalize %></p> 
@@ -15,7 +14,6 @@
           </div>
         </div>
     </div>  
-  <% end %>
 </nav>
 
 <p style="color: green"><%= notice %></p>
