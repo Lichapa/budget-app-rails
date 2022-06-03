@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Entity, type: :model do
-  subject do 
+  subject do
     @user = User.create!(name: 'Mphatso Lichapa', photo: 'photo.jpg', email: 'mphatso@mail.com', password: 'password')
     @group = Group.create!(name: 'Utilities', icon: 'water_meter.pgp', user_id: @user.id)
     Entity.create!(name: 'water', amount: 60, user_id: @user.id, group_id: @group.id)
   end
-   before(:each) { subject.save }
+  before(:each) { subject.save }
 
   it 'should check validity ' do
     expect(subject).to be_valid
@@ -46,7 +46,7 @@ RSpec.describe Entity, type: :model do
   end
 
   it 'should be an integer' do
-    subject.amount = "sixty"
+    subject.amount = 'sixty'
     expect(subject).to_not be_valid
   end
 end

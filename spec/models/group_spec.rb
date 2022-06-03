@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  subject do 
+  subject do
     @user = User.create!(name: 'Mphatso Lichapa', photo: 'photo.jpg', email: 'mphatso@mail.com', password: 'password')
     Group.create!(name: 'utilities', icon: 'meter.pgp', user_id: @user.id)
   end
 
-   before(:each) { subject.save }
+  before(:each) { subject.save }
 
   it 'should check validity ' do
     expect(subject).to be_valid
@@ -32,6 +32,6 @@ RSpec.describe Group, type: :model do
   end
 
   it 'should have the icon meter.pgp' do
-    expect(subject.icon).to eql("meter.pgp")
+    expect(subject.icon).to eql('meter.pgp')
   end
 end

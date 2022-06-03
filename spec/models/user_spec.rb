@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject do 
+  subject do
     User.create!(name: 'Mphatso Lichapa', photo: 'photo.jpg', email: 'mphatso@mail.com', password: 'password')
   end
 
-   before(:each) { subject.save }
+  before(:each) { subject.save }
 
   it 'should check validity ' do
     expect(subject).to be_valid
@@ -36,14 +36,14 @@ RSpec.describe User, type: :model do
   end
 
   it 'should have the icon meter.pgp' do
-    expect(subject.photo).to eql("photo.jpg")
+    expect(subject.photo).to eql('photo.jpg')
   end
 
   it 'should match provided email' do
-    expect(subject.email).to eql("mphatso@mail.com")
+    expect(subject.email).to eql('mphatso@mail.com')
   end
 
   it 'should match provided password' do
-    expect(subject.password).to eql("password")
+    expect(subject.password).to eql('password')
   end
 end
