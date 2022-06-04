@@ -85,3 +85,5 @@ gem 'cancancan'
 gem 'rails-controller-testing'
 
 gem 'ffi', github: 'ffi/ffi', submodules: true
+
+gem 'rails_12factor'
