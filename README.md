@@ -1,6 +1,17 @@
 # Budget Rails app
 
 This project is for developing a budget app using rails
+
+- [Live Demo - Heroku](https://intense-harbor-49660.herokuapp.com/)
+- [Video Presentation](https://www.loom.com/share/6d01e431f7a0467dad0c6122f6cbd497)
+
+## Quick Preview
+
+![DEMO GIF](app/assets/images/appScreenshot.png)
+
+## Entity Relationship Diagram
+The Schema for the BigBudget App was designed based on the Entity Relationship Diagram (ERD) below.
+
 # Built with
 
 - Ruby
@@ -52,6 +63,9 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
+## Acknowledgement
+
+- credit to Gregoire Vella on Behance the author of the original design.
 ## Show your support
 
 Give a ⭐️ if you like this project!!
