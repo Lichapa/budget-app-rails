@@ -7,7 +7,7 @@ This project is for developing a budget app using rails
 
 ## Quick Preview
 
-![DEMO GIF](app/assets/images/appScreenshot.PNG)
+![DEMO GIF](app/assets/images/appScreenshot.png)
 
 ## Entity Relationship Diagram
 The Schema for the BigBudget App was designed based on the Entity Relationship Diagram (ERD) below.
