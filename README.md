@@ -63,6 +63,9 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](../../issues/).
 
+## Acknowledgement
+
+- credit to Gregoire Vella on Behance the author of the original design.
 ## Show your support
 
 Give a ⭐️ if you like this project!!
